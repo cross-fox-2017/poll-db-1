@@ -1,15 +1,23 @@
 <!-- Release 1  -->
 
 <!-- 1. Hitung jumlah vote untuk Sen. Olympia Snowe yang memiliki id 524. -->
-
+<!-- SELECT COUNT(*) FROM votes WHERE politician_id=524; -->
 <!-- 2. Sekarang lakukan JOIN tanpa menggunakan id `524`. Query kedua tabel votes dan congress_members. -->
-
+<!-- sqlite> select votes.*,congress_members.*
+   ...> from votes
+   ...> left join congress_members
+   ...> on congress_members.id=votes.politician_id
+   ...> where congress_members.id=524; -->
 <!-- 3. Sekarang gimana dengan representative Erik Paulsen? Berapa banyak vote yang dia dapatkan? -->
-
+<!-- sqlite> select count(*)
+   ...> from votes
+   ...> left join congress_members
+   ...> on congress_members.id=votes.politician_id
+   ...> where congress_members.name='Rep. Erik Paulsen'; -->
 <!-- 4. Buatlah daftar peserta Congress yang mendapatkan vote terbanyak. Jangan sertakan field `created_at` dan `updated_at`. -->
-
+<!-- sqlite> select congress_members.name, count(*) from votes left join congress_members on congress_members.id=votes.politician_id group by congress_members.name order by count(*) desc limit 3; -->
 <!-- 5. Sekarang buatlah sebuah daftar semua anggota Congress yang setidaknya mendapatkan beberapa vote dalam urutan dari yang paling sedikit. Dan juga jangan sertakan field-field yang memiliki tipe date. -->
-
+<!-- sqlite> select congress_members.name, count(*) from votes left join congress_members on congress_members.id=votes.politician_id group by congress_members.name order by count(*) asc limit 3; -->
 <!-- Release 2  -->
 
 <!-- 1. Siapa anggota Congress yang mendapatkan vote terbanyak? List nama mereka dan jumlah vote-nya. Siapa saja yang memilih politisi tersebut? List nama mereka, dan jenis kelamin mereka. -->
