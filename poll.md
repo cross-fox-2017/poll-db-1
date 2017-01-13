@@ -1,10 +1,13 @@
 <!-- Release 1  -->
 
 <!-- 1. Hitung jumlah vote untuk Sen. Olympia Snowe yang memiliki id 524. -->
+<!-- SELECT COUNT(*) from votes WHERE politician_id = 524; -->
 
 <!-- 2. Sekarang lakukan JOIN tanpa menggunakan id `524`. Query kedua tabel votes dan congress_members. -->
+<!-- SELECT * FROM congress_members JOIN votes WHERE congress_members.id = politician_id; -->
 
 <!-- 3. Sekarang gimana dengan representative Erik Paulsen? Berapa banyak vote yang dia dapatkan? -->
+
 
 <!-- 4. Buatlah daftar peserta Congress yang mendapatkan vote terbanyak. Jangan sertakan field `created_at` dan `updated_at`. -->
 
