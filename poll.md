@@ -1,31 +1,45 @@
 <!-- Release 1  -->
 
 <!-- 1. Hitung jumlah vote untuk Sen. Olympia Snowe yang memiliki id 524. -->
-		<!-- SELECT COUNT(*) FROM votes WHERE politician_id = 524; -->
+	<!--
+	SELECT COUNT(*) FROM votes WHERE politician_id = 524;
+	-->
 
 <!-- 2. Sekarang lakukan JOIN tanpa menggunakan id `524`. Query kedua tabel votes dan congress_members. -->
-		<!--
-
-		SELECT name,party,location,grade_1996,grade_current,years_in_congress,dw1_score
-    FROM congress_members AS cm
-    JOIN votes AS v
-    WHERE cm.id = v.politician_id
-    AND cm.name
-    LIKE "%Sen. Olympia Snowe%";  -->
+	<!--
+	SELECT name,party,location,grade_1996,grade_current,years_in_congress,dw1_score
+	FROM congress_members AS cm
+	JOIN votes AS v
+	WHERE cm.id = v.politician_id
+	AND cm.name
+	LIKE "%Sen. Olympia Snowe%";
+	-->
 
 <!-- 3. Sekarang gimana dengan representative Erik Paulsen? Berapa banyak vote yang dia dapatkan? -->  
-
-      <!-- SELECT COUNT(name) FROM congress_members AS cm
-      LEFT JOIN votes AS v
-      ON cm.id = v.politician_id
-      WHERE cm.name LIKE "%Erik Paulsen%";-->
-
+	<!--
+	SELECT COUNT(name) FROM congress_members AS cm
+	LEFT JOIN votes AS v
+	ON cm.id = v.politician_id
+	WHERE cm.name LIKE "%Erik Paulsen%";
+	-->
 
 <!-- 4. Buatlah daftar peserta Congress yang mendapatkan vote terbanyak. Jangan sertakan field `created_at` dan `updated_at`. -->
-
-<!--  -->
-
+	<!--
+        SELECT name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, COUNT(*) AS number_of_votes
+	FROM congress_members AS cm, votes 
+	WHERE votes.politician_id = cm.id 
+	GROUP BY cm.id 
+	ORDER BY number_of_votes DESC LIMIT 3;
+	-->
+	
 <!-- 5. Sekarang buatlah sebuah daftar semua anggota Congress yang setidaknya mendapatkan beberapa vote dalam urutan dari yang paling sedikit. Dan juga jangan sertakan field-field yang memiliki tipe date. -->
+	<!--
+     	SELECT name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, COUNT(*) AS number_of_votes
+	FROM congress_members AS cm, votes 
+	WHERE votes.politician_id = cm.id 
+	GROUP BY cm.id 
+	ORDER BY number_of_votes ASC LIMIT 3;
+	-->
 
 <!-- Release 2  -->
 
