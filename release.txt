@@ -1,0 +1,4 @@
+SELECT name,party,counting
+FROM congress_members,
+(SELECT COUNT(voter_id) AS counting FROM votes WHERE politican_id =)
+WHERE cm.name LIKE "%Dan Benishek%";
